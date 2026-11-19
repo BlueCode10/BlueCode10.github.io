@@ -1,6 +1,6 @@
 # Veo Thadeus Calimlim — Portfolio
 
-Personal portfolio site, served by GitHub Pages at https://blueoptimist.github.io.
+Personal portfolio site, served by GitHub Pages at https://bluecode10.github.io.
 
 A single static `index.html` with no build step. Edit it and push to `master` to update the site.
 
