@@ -64,26 +64,49 @@ h1, h2, h3 { font-family: "Space Grotesk", Inter, sans-serif; line-height: 1.15;
 
 /* nav */
 header.nav {
-  position: sticky; top: 0; z-index: 10;
-  background: color-mix(in srgb, var(--bg) 85%, transparent);
-  backdrop-filter: saturate(160%) blur(10px);
-  border-bottom: 1px solid var(--line);
+  position: sticky; top: 14px; z-index: 10;
+  display: flex; justify-content: center; padding: 0 16px;
+  pointer-events: none;
 }
-header.nav .wrap { display: flex; align-items: center; justify-content: flex-end; height: 60px; gap: 12px; }
-.logo { font-family: "Space Grotesk"; font-weight: 700; color: var(--text); letter-spacing: -.01em; }
-.logo span { color: var(--accent); }
-nav ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; align-items: center; }
-nav a { color: var(--muted); font-size: 14px; font-weight: 500; }
-nav a:hover { color: var(--text); text-decoration: none; }
-.theme-btn {
+.nav-pill {
+  pointer-events: auto; position: relative;
+  display: flex; align-items: center; gap: 4px;
+  padding: 5px 5px 5px 8px; border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  backdrop-filter: saturate(160%) blur(12px); -webkit-backdrop-filter: saturate(160%) blur(12px);
+  border: 1px solid var(--line);
+  box-shadow: 0 6px 24px rgba(0,0,0,.12);
+}
+.nav-links { list-style: none; display: flex; gap: 2px; margin: 0; padding: 0; align-items: center; }
+.nav-links a {
+  display: block; padding: 6px 12px; border-radius: 999px;
+  color: var(--muted); font-size: 14px; font-weight: 500; transition: color .2s, background .2s;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--text); background: var(--chip); }
+.nav-name { display: none; font-family: "Space Grotesk"; font-weight: 700; font-size: 15px; padding: 0 10px 0 8px; color: var(--text); }
+.icon-btn {
   border: 1px solid var(--line); background: var(--surface); color: var(--text);
-  width: 34px; height: 34px; border-radius: 9px; cursor: pointer; display: grid; place-items: center;
+  width: 34px; height: 34px; border-radius: 50%; cursor: pointer; display: grid; place-items: center; flex: none;
 }
-.theme-btn svg { width: 16px; height: 16px; }
-@media (max-width: 640px) { nav .links { display: none; } }
+.icon-btn svg { width: 16px; height: 16px; }
+.menu-btn { display: none; }
+@media (max-width: 760px) {
+  .nav-pill { width: 100%; max-width: 420px; }
+  .nav-name { display: block; margin-right: auto; }
+  .menu-btn { display: grid; }
+  .nav-links {
+    display: none; position: absolute; top: calc(100% + 8px); left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 2px; padding: 8px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
+    box-shadow: 0 12px 32px rgba(0,0,0,.18);
+  }
+  .nav-pill.open .nav-links { display: flex; }
+  .nav-links a { padding: 10px 14px; border-radius: 12px; font-size: 15px; }
+}
 
 /* hero */
-.hero { padding: 88px 0 72px; }
+.hero { padding: 56px 0 72px; }
 .eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 13px; font-weight: 600; color: var(--accent);
@@ -112,7 +135,7 @@ nav a:hover { color: var(--text); text-decoration: none; }
 @media (max-width: 640px) { .stats { grid-template-columns: repeat(2, 1fr); } }
 
 /* sections */
-section.block { padding: 64px 0; border-top: 1px solid var(--line); scroll-margin-top: 40px; }
+section.block { padding: 64px 0; border-top: 1px solid var(--line); scroll-margin-top: 72px; }
 .sec-head { display: grid; grid-template-columns: 200px 1fr; gap: 32px; }
 .sec-head h2 { font-size: 15px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); font-family: Inter; font-weight: 600; padding-top: 6px; }
 @media (max-width: 760px) { .sec-head { grid-template-columns: 1fr; gap: 18px; } }
@@ -186,7 +209,7 @@ a.proj:hover { text-decoration: none; border-color: var(--accent); transform: tr
 .edu span { color: var(--muted); }
 
 /* contact */
-.contact { text-align: center; padding: 80px 0; border-top: 1px solid var(--line); }
+.contact { scroll-margin-top: 72px; text-align: center; padding: 80px 0; border-top: 1px solid var(--line); }
 .contact h2 { font-size: clamp(28px, 5vw, 40px); letter-spacing: -.02em; margin-bottom: 12px; }
 .contact p { color: var(--muted); margin: 0 auto 28px; max-width: 480px; }
 .contact .cta { justify-content: center; }
@@ -201,23 +224,23 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 <body>
 
 <header class="nav">
-  <div class="wrap">
-    <nav>
-      <ul>
-        <li class="links"><a href="#about">About</a></li>
-        <li class="links"><a href="#experience">Experience</a></li>
-        <li class="links"><a href="#certifications">Certifications</a></li>
-        <li class="links"><a href="#projects">Projects</a></li>
-        <li class="links"><a href="#skills">Skills</a></li>
-        <li class="links"><a href="#contact">Contact</a></li>
-        <li>
-          <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-          </button>
-        </li>
-      </ul>
-    </nav>
-  </div>
+  <nav class="nav-pill" id="navPill" aria-label="Main">
+    <a class="nav-name" href="#top">Veo Calimlim</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </nav>
 </header>
 
 <main id="top">
@@ -546,6 +569,31 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     try { localStorage.setItem('theme', next); } catch (e) {}
   });
   document.getElementById('yr').textContent = new Date().getFullYear();
+
+  var pill = document.getElementById('navPill');
+  var menuBtn = document.getElementById('menuBtn');
+  function setMenu(open) {
+    pill.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  menuBtn.addEventListener('click', function (e) { e.stopPropagation(); setMenu(!pill.classList.contains('open')); });
+  document.addEventListener('click', function (e) { if (!pill.contains(e.target)) setMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+
+  var navLinks = document.querySelectorAll('.nav-links a');
+  navLinks.forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  var sections = [];
+  navLinks.forEach(function (a) { var s = document.querySelector(a.getAttribute('href')); if (s) sections.push([s, a]); });
+  function updateActive() {
+    var line = window.innerHeight * 0.4, current = null;
+    sections.forEach(function (p) { if (p[0].getBoundingClientRect().top <= line) current = p[1]; });
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) current = sections[sections.length - 1][1];
+    navLinks.forEach(function (a) { a.classList.toggle('active', a === current); });
+  }
+  window.addEventListener('scroll', updateActive, { passive: true });
+  window.addEventListener('resize', updateActive);
+  updateActive();
   var els = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
