@@ -169,6 +169,8 @@ a.proj:hover { text-decoration: none; border-color: var(--accent); transform: tr
 .proj-top { display: flex; justify-content: space-between; align-items: center; }
 .proj-year { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .proj-arrow { color: var(--accent); font-size: 16px; }
+.proj-private { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); }
+.proj-private svg { width: 12px; height: 12px; }
 .proj h3 { font-size: 17px; }
 .proj p { margin: 0; color: var(--muted); font-size: 14px; flex: 1; }
 .proj .tags { margin-top: 4px; }
@@ -382,6 +384,12 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     <div class="wrap sec-head">
       <h2>Projects</h2>
       <div class="projects">
+        <div class="proj">
+          <div class="proj-top"><span class="proj-private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Private</span></div>
+          <h3>Gaming Community Platform</h3>
+          <p>A community site for sharing game mods. I first built it in PHP, then rebuilt it as a modern full-stack app running on edge infrastructure.</p>
+          <div class="tags"><span class="tag">TypeScript</span><span class="tag">SvelteKit</span><span class="tag">Cloudflare</span><span class="tag">SQL</span><span class="tag">Tailwind CSS</span></div>
+        </div>
         <a class="proj" href="https://github.com/BlueCode10/nba2khub-mod-tool" target="_blank" rel="noopener">
           <div class="proj-top"><span class="proj-year">2026</span><span class="proj-arrow">↗</span></div>
           <h3>Game Modding Tool</h3>
@@ -394,29 +402,30 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
           <p>Reverse-engineering tools and a native platform layer that bring a classic console game to modern Windows.</p>
           <div class="tags"><span class="tag">C</span><span class="tag">Reverse engineering</span><span class="tag">Direct3D</span></div>
         </a>
+        <div class="proj">
+          <div class="proj-top"><span class="proj-private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Private</span></div>
+          <h3>Game Asset Converter</h3>
+          <p>A tool that converts character assets from newer game versions into a format older ones can use.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">File formats</span></div>
+        </div>
+        <div class="proj">
+          <div class="proj-top"><span class="proj-private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Private</span></div>
+          <h3>Listing Automation Extension</h3>
+          <p>A browser extension that turns a social media post into a pre-filled marketplace listing in one click.</p>
+          <div class="tags"><span class="tag">JavaScript</span><span class="tag">Chrome / Edge extension</span></div>
+        </div>
+        <div class="proj">
+          <div class="proj-top"><span class="proj-private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Private</span></div>
+          <h3>City Reporting System</h3>
+          <p>A web app for reporting issues in a city.</p>
+          <div class="tags"><span class="tag">PHP</span><span class="tag">CodeIgniter</span><span class="tag">MySQL</span></div>
+        </div>
         <a class="proj" href="https://github.com/BlueCode10/Project" target="_blank" rel="noopener">
           <div class="proj-top"><span class="proj-year">2019</span><span class="proj-arrow">↗</span></div>
           <h3>Ordering &amp; Sales Management System</h3>
           <p>A web platform for orders and sales that analyzes customers' purchases to suggest products. I was the back-end developer.</p>
           <div class="tags"><span class="tag">PHP</span><span class="tag">CodeIgniter</span><span class="tag">MySQL</span><span class="tag">Data analysis</span></div>
         </a>
-        <a class="proj" href="https://github.com/BlueCode10/notes-app" target="_blank" rel="noopener">
-          <div class="proj-top"><span class="proj-year">2020</span><span class="proj-arrow">↗</span></div>
-          <h3>Notes App</h3>
-          <p>A single-page app for writing and organizing notes, with user accounts and a cloud database.</p>
-          <div class="tags"><span class="tag">Vue</span><span class="tag">Firebase</span></div>
-        </a>
-        <div class="proj">
-          <div class="proj-top"><span class="proj-year">2020</span></div>
-          <h3>Front-end Practice</h3>
-          <p>Small learning projects from picking up modern JavaScript frameworks.</p>
-          <div class="tags"><span class="tag">Vue</span><span class="tag">AngularJS</span></div>
-          <div class="proj-links">
-            <a href="https://github.com/BlueCode10/training-vue" target="_blank" rel="noopener">Vue basics</a>
-            <a href="https://github.com/BlueCode10/training-vue-part2" target="_blank" rel="noopener">Vue components</a>
-            <a href="https://github.com/BlueCode10/angular-js-practice" target="_blank" rel="noopener">AngularJS</a>
-          </div>
-        </div>
       </div>
     </div>
   </section>
