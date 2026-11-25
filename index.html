@@ -158,6 +158,23 @@ section.block { padding: 64px 0; border-top: 1px solid var(--line); scroll-margi
 .cert p { margin: 0; color: var(--muted); font-size: 13px; }
 @media (max-width: 400px) { .certs { grid-template-columns: 1fr; } }
 
+/* projects */
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+.proj {
+  display: flex; flex-direction: column; gap: 8px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px;
+  box-shadow: var(--shadow); color: var(--text); transition: border-color .2s, transform .2s;
+}
+a.proj:hover { text-decoration: none; border-color: var(--accent); transform: translateY(-2px); }
+.proj-top { display: flex; justify-content: space-between; align-items: center; }
+.proj-year { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.proj-arrow { color: var(--accent); font-size: 16px; }
+.proj h3 { font-size: 17px; }
+.proj p { margin: 0; color: var(--muted); font-size: 14px; flex: 1; }
+.proj .tags { margin-top: 4px; }
+.proj-links { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13px; font-weight: 500; margin-top: 4px; }
+@media (max-width: 400px) { .projects { grid-template-columns: 1fr; } }
+
 /* skills */
 .skill-groups { display: grid; gap: 22px; }
 .skill-groups h3 { font-size: 15px; font-family: Inter; font-weight: 600; margin-bottom: 10px; }
@@ -188,6 +205,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
         <li class="links"><a href="#about">About</a></li>
         <li class="links"><a href="#experience">Experience</a></li>
         <li class="links"><a href="#certifications">Certifications</a></li>
+        <li class="links"><a href="#projects">Projects</a></li>
         <li class="links"><a href="#skills">Skills</a></li>
         <li class="links"><a href="#contact">Contact</a></li>
         <li>
@@ -354,6 +372,49 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
           <div>
             <h3>EY ServiceNow – Fundamentals – Bronze Learning (2025)</h3>
             <p>EY · Issued Sep 2025</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block reveal" id="projects">
+    <div class="wrap sec-head">
+      <h2>Projects</h2>
+      <div class="projects">
+        <a class="proj" href="https://github.com/BlueCode10/nba2khub-mod-tool" target="_blank" rel="noopener">
+          <div class="proj-top"><span class="proj-year">2026</span><span class="proj-arrow">↗</span></div>
+          <h3>Game Modding Tool</h3>
+          <p>A desktop editor for a gaming community's mods. It has a modern interface with tabs and handles asset conversion automatically.</p>
+          <div class="tags"><span class="tag">C#</span><span class="tag">.NET</span><span class="tag">Desktop UI</span></div>
+        </a>
+        <a class="proj" href="https://github.com/BlueCode10/dra2-recomp" target="_blank" rel="noopener">
+          <div class="proj-top"><span class="proj-year">2026</span><span class="proj-arrow">↗</span></div>
+          <h3>Classic Game PC Port</h3>
+          <p>Reverse-engineering tools and a native platform layer that bring a classic console game to modern Windows.</p>
+          <div class="tags"><span class="tag">C</span><span class="tag">Reverse engineering</span><span class="tag">Direct3D</span></div>
+        </a>
+        <a class="proj" href="https://github.com/BlueCode10/Project" target="_blank" rel="noopener">
+          <div class="proj-top"><span class="proj-year">2019</span><span class="proj-arrow">↗</span></div>
+          <h3>Ordering &amp; Sales Management System</h3>
+          <p>A web platform for orders and sales that analyzes customers' purchases to suggest products. I was the back-end developer.</p>
+          <div class="tags"><span class="tag">PHP</span><span class="tag">CodeIgniter</span><span class="tag">MySQL</span><span class="tag">Data analysis</span></div>
+        </a>
+        <a class="proj" href="https://github.com/BlueCode10/notes-app" target="_blank" rel="noopener">
+          <div class="proj-top"><span class="proj-year">2020</span><span class="proj-arrow">↗</span></div>
+          <h3>Notes App</h3>
+          <p>A single-page app for writing and organizing notes, with user accounts and a cloud database.</p>
+          <div class="tags"><span class="tag">Vue</span><span class="tag">Firebase</span></div>
+        </a>
+        <div class="proj">
+          <div class="proj-top"><span class="proj-year">2020</span></div>
+          <h3>Front-end Practice</h3>
+          <p>Small learning projects from picking up modern JavaScript frameworks.</p>
+          <div class="tags"><span class="tag">Vue</span><span class="tag">AngularJS</span></div>
+          <div class="proj-links">
+            <a href="https://github.com/BlueCode10/training-vue" target="_blank" rel="noopener">Vue basics</a>
+            <a href="https://github.com/BlueCode10/training-vue-part2" target="_blank" rel="noopener">Vue components</a>
+            <a href="https://github.com/BlueCode10/angular-js-practice" target="_blank" rel="noopener">AngularJS</a>
           </div>
         </div>
       </div>
