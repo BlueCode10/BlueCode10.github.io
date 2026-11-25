@@ -69,7 +69,7 @@ header.nav {
   backdrop-filter: saturate(160%) blur(10px);
   border-bottom: 1px solid var(--line);
 }
-header.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; }
+header.nav .wrap { display: flex; align-items: center; justify-content: flex-end; height: 60px; gap: 12px; }
 .logo { font-family: "Space Grotesk"; font-weight: 700; color: var(--text); letter-spacing: -.01em; }
 .logo span { color: var(--accent); }
 nav ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; align-items: center; }
@@ -112,7 +112,7 @@ nav a:hover { color: var(--text); text-decoration: none; }
 @media (max-width: 640px) { .stats { grid-template-columns: repeat(2, 1fr); } }
 
 /* sections */
-section.block { padding: 64px 0; border-top: 1px solid var(--line); }
+section.block { padding: 64px 0; border-top: 1px solid var(--line); scroll-margin-top: 40px; }
 .sec-head { display: grid; grid-template-columns: 200px 1fr; gap: 32px; }
 .sec-head h2 { font-size: 15px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); font-family: Inter; font-weight: 600; padding-top: 6px; }
 @media (max-width: 760px) { .sec-head { grid-template-columns: 1fr; gap: 18px; } }
@@ -144,6 +144,20 @@ section.block { padding: 64px 0; border-top: 1px solid var(--line); }
 .card h3 { font-size: 17px; margin-bottom: 6px; }
 .card p { margin: 0; color: var(--muted); font-size: 14px; }
 
+/* certifications */
+.certs { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+.cert { display: flex; gap: 16px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; box-shadow: var(--shadow); }
+.cert-badge {
+  flex: none; width: 64px; height: 64px; border-radius: 14px;
+  display: grid; place-items: center;
+  background: var(--accent-soft); color: var(--accent);
+  font-family: "Space Grotesk"; font-weight: 700; font-size: 15px; letter-spacing: -.01em;
+}
+.cert-badge.alt { background: var(--chip); color: var(--text); }
+.cert h3 { font-size: 16px; margin-bottom: 4px; }
+.cert p { margin: 0; color: var(--muted); font-size: 13px; }
+@media (max-width: 400px) { .certs { grid-template-columns: 1fr; } }
+
 /* skills */
 .skill-groups { display: grid; gap: 22px; }
 .skill-groups h3 { font-size: 15px; font-family: Inter; font-weight: 600; margin-bottom: 10px; }
@@ -169,11 +183,11 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 
 <header class="nav">
   <div class="wrap">
-    <a class="logo" href="#top">Veo<span>.</span></a>
     <nav>
       <ul>
         <li class="links"><a href="#about">About</a></li>
         <li class="links"><a href="#experience">Experience</a></li>
+        <li class="links"><a href="#certifications">Certifications</a></li>
         <li class="links"><a href="#skills">Skills</a></li>
         <li class="links"><a href="#contact">Contact</a></li>
         <li>
@@ -310,6 +324,42 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     </div>
   </section>
 
+  <section class="block reveal" id="certifications">
+    <div class="wrap sec-head">
+      <h2>Certifications</h2>
+      <div class="certs">
+        <div class="cert">
+          <div class="cert-badge">CIS-HR</div>
+          <div>
+            <h3>Certified Implementation Specialist – Human Resources</h3>
+            <p>ServiceNow · Issued Apr 2026</p>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-badge">CAD</div>
+          <div>
+            <h3>Certified Application Developer</h3>
+            <p>ServiceNow · Issued Feb 2023</p>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-badge">CSA</div>
+          <div>
+            <h3>Certified System Administrator</h3>
+            <p>ServiceNow · Issued Oct 2022</p>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-badge alt">EY</div>
+          <div>
+            <h3>EY ServiceNow – Fundamentals – Bronze Learning (2025)</h3>
+            <p>EY · Issued Sep 2025</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="block reveal" id="highlights">
     <div class="wrap sec-head">
       <h2>Highlights</h2>
@@ -321,8 +371,8 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
         </div>
         <div class="card">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.2 7 22l5-3 5 3-1.2-8.8"/></svg></div>
-          <h3>ServiceNow CIS-HR</h3>
-          <p>Certified Implementation Specialist for Human Resources, plus EY ServiceNow Fundamentals (Bronze).</p>
+          <h3>Triple ServiceNow certified</h3>
+          <p>System Administrator, Application Developer and Implementation Specialist – HR.</p>
         </div>
         <div class="card">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div>
